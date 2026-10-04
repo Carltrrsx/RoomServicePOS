@@ -1,5 +1,11 @@
-public class App{
+import java.sql.*;
+
+public class App {
     public static void main(String[] args) {
-        
+        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:roomservice.db")) {
+            System.out.println("Connected to SQLite!");
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 }
